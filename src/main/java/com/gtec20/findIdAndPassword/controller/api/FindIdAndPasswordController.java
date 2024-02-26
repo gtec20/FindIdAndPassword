@@ -14,7 +14,7 @@ public class FindIdAndPasswordController {
 
     List<String> nameList = List.of("최승우", "채승주", "유정하");
     List<String> idList = List.of("seungwoo", "seungjoo", "jeongha");
-    List<String> pwList = List.of("123", "456", "789");
+    List<String> pwList = List.of("password1", "password2", "password3");
 
     @GetMapping("")
     public String isLogin(@ModelAttribute("findDto") FindDto findDto) {
