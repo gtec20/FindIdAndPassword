@@ -1,4 +1,4 @@
-package com.gtec20.firstproject.controller.api;
+package com.gtec20.findIdAndPassword.controller.api;
 
 import com.gtec20.firstproject.application.dto.login.LoginDto;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,7 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/login")
-public class LoginController {
+public class FindIdAndPasswordController {
 
     List<String> nameList = List.of("최승우", "채승주", "유정하");
     List<String> idList = List.of("seungwoo", "seungjoo", "jeongha");

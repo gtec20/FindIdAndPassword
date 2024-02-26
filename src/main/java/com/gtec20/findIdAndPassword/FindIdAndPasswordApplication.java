@@ -1,13 +1,13 @@
-package com.gtec20.demo;
+package com.gtec20.findIdAndPassword;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class FindIdAndPasswordApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(FindIdAndPasswordApplication.class, args);
     }
 
 }

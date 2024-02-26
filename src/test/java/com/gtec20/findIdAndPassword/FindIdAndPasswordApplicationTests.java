@@ -1,10 +1,10 @@
-package com.gtec20.demo;
+package com.gtec20.findIdAndPassword;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class DemoApplicationTests {
+class FindIdAndPasswordApplicationTests {
 
     @Test
     void contextLoads() {
