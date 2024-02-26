@@ -1,4 +1,4 @@
-package com.gtec20.firstproject.application.dto.login;
+package com.gtec20.findIdAndPassword.application.dto.find;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,11 +7,11 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-public class LoginDto {
+public class FindDto {
     String id;
     String pw;
 
-    public LoginDto(String id, String pw) {
+    public FindDto(String id, String pw) {
         this.id = id;
         this.pw = pw;
     }

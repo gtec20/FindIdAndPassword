@@ -1,6 +1,6 @@
 package com.gtec20.findIdAndPassword.controller.api;
 
-import com.gtec20.firstproject.application.dto.login.LoginDto;
+import com.gtec20.findIdAndPassword.application.dto.find.FindDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +17,7 @@ public class FindIdAndPasswordController {
     List<String> pwList = List.of("123", "456", "789");
 
     @GetMapping("")
-    public String isLogin(@ModelAttribute("loginDto") LoginDto loginDto) {
+    public String isLogin(@ModelAttribute("findDto") FindDto findDto) {
         return "";
     }
 

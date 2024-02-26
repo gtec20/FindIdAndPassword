@@ -1,4 +1,4 @@
-package com.gtec20.firstproject.controller.view;
+package com.gtec20.findIdAndPassword.controller.view;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ViewController {
 
-    @GetMapping("/login")
-    public String login() {
-        return "page/login";
+    @GetMapping("/find")
+    public String find() {
+        return "page/find";
     }
 }
