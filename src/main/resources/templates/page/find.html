@@ -31,6 +31,7 @@
                 $('#find_pw_btn').removeClass('orange');
                 $('#find_pw_btn').removeClass('orange_bottom');
                 $('#footer').addClass('blue');
+                $('#find').addClass('blue');
                 return;
             }
             if("find_pw_btn" === id) {
@@ -41,6 +42,8 @@
                 $('#find_id_btn').removeClass('blue_bottom');
                 $('#footer').addClass('orange');
                 $('#footer').removeClass('blue');
+                $('#find').addClass('orange');
+                $('#find').removeClass('blue');
             }
         });
     });
