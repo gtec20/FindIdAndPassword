@@ -32,6 +32,7 @@
                 $('#find_pw_btn').removeClass('orange_bottom');
                 $('#footer').addClass('blue');
                 $('#find').addClass('blue');
+                $('#find').text("아이디 찾기");
                 return;
             }
             if("find_pw_btn" === id) {
@@ -44,6 +45,7 @@
                 $('#footer').removeClass('blue');
                 $('#find').addClass('orange');
                 $('#find').removeClass('blue');
+                $('#find').text("비밀번호 찾기");
             }
         });
     });
