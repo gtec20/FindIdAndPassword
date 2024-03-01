@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>계정찾기 | 메이플스토리</title>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<script>
+    function home() {
+        location.href = 'https://maplestory.nexon.com/Home/Main';
+    }
+
+    // 'https://m.facebook.com/login.php?skip_api_login=1&api_key=198868903993596&kid_directed_site=0&app_id=198868903993596&signed_next=1&next=https%3A%2F%2Fm.facebook.com%2Fdialog%2Foauth%3Fscope%3Demail%26client_id%3D198868903993596%26redirect_uri%3Dhttps%253A%252F%252Flogin.nexon.com%252Flogin%252Ffacebook%252FAccessToken%26state%3DmshYudRn6a2R%257EZlv8SHdHZJ6rLyPdNGWSLYmNSlErggo59d3fP9wvXxUytgQUqT7K8ghWZBxmyDOptd6dowwdUgOqbhkOjwM5Sk88SYVeqMnoQ4fHqjYRE2XOlFAUT3DkJp%257EmFDUOnHT7jVS4c2sMkdWQE79NG%26ret%3Dlogin%26fbapp_pres%3D0%26logger_id%3D6a405439-349d-4f8c-8f13-7e223b6d42d0%26tp%3Dunspecified&cancel_url=https%3A%2F%2Flogin.nexon.com%2Flogin%2Ffacebook%2FAccessToken%3Ferror%3Daccess_denied%26error_code%3D200%26error_description%3DPermissions%2Berror%26error_reason%3Duser_denied%26state%3DmshYudRn6a2R%257EZlv8SHdHZJ6rLyPdNGWSLYmNSlErggo59d3fP9wvXxUytgQUqT7K8ghWZBxmyDOptd6dowwdUgOqbhkOjwM5Sk88SYVeqMnoQ4fHqjYRE2XOlFAUT3DkJp%257EmFDUOnHT7jVS4c2sMkdWQE79NG%23_%3D_&display=touch&locale=ko_KR&pl_dbl=0&refsrc=deprecated&_rdr'
+    // 'https://accounts.google.com/v3/signin/identifier?opparams=%253F&dsh=S-1207223151%3A1708933189469537&access_type=offline&client_id=919331056041-46d8sbblkb1ek3o02iva7vaiqth50clq.apps.googleusercontent.com&include_granted_scopes=true&o2v=2&redirect_uri=https%3A%2F%2Flogin.nexon.com%2Flogin%2Fgoogle%2FAccessToken&response_type=code&scope=profile+email&service=lso&state=POod52rIKXR6lqQ3LgsQC0Nzf1CMk1fFkhCJAmMp742bpeI4RlNQJFJLDBJK%7EiyaaaqfNDSmyTsllTNsyfe0LDgFE7laC2p4abBiBUqqZ2eXkD7v9tCVyZF2rzDefTN3ZIyJ5O6KcFZFTrcLWcEWsC2PEj8YjW&theme=glif&flowName=GeneralOAuthFlow&continue=https%3A%2F%2Faccounts.google.com%2Fsignin%2Foauth%2Fconsent%3Fauthuser%3Dunknown%26part%3DAJi8hAOE3LHXPR1Hrt3EaQFNgr8kallrS5dYUTbOwIFiSX4M3Yy3xzboE6E-oy9SvQR83IBGoBwG4a5FKbxzVoY_5pb4IxQ-4aFUQTFLoDeP1Lnbv3wEfARXSNVljA07JzXg7U6vL7wgXEpzDGx1ti5CMdGt56n63KKvQcJnWhXLmmXG0pLA1LkmTuASisBoEIkTDYBebYqGjdK02K3mP8X8EAIIL38RpmkMfzGuwph2Lcfx7KZsIGpIA__RX2lKqN7otnM5Bh1TAGLRzcB8vkVPOjUfNVwflWlfam4oRc0DAmg_VuhnlEFKXfFN8HoNWbXvmhQWBmQC6D0kd-3UhE5bTPJCqvKP31q7mUhHAnFRNifIj56lemrBUagGbyOhIpbHeQZOKhOLcP4awbaz6J-XNOo3q4vyN7fZIWUwblNJDeOfgMxgtS9HfwIq5ooniQ4kyQ7F0NCy-jiaVE_n2ULmQVrFJbsQlQ%26flowName%3DGeneralOAuthFlow%26as%3DS-1207223151%253A1708933189469537%26client_id%3D919331056041-46d8sbblkb1ek3o02iva7vaiqth50clq.apps.googleusercontent.com%26theme%3Dglif%23&app_domain=https%3A%2F%2Flogin.nexon.com&rart=ANgoxceKq3c7Bhnt_05GxPE6jZpeieNxVjS4r3g_nxTHENSlQQHf4GK-TCGyZCjrMpmKi1plqGoMI6zbVX35ZAGz5wk6sA5mwEZbao8CsVJZJ88U9UTBOd4'
+    // 'https://nid.naver.com/oauth2.0/authorize?response_type=code&svctype=0&client_id=9tEsmZTa1qdnr6eIz2yO&redirect_uri=https%3a%2f%2flogin.nexon.com%2flogin%2fnaver%2fAccessToken&state=cjojttk6wIY1L5~FgPrw5ck32oBzKyC0bAOOkGEnwhVQkfywZzli7qGiitRMtszRi3hzvSiSL5o52vfdPI~QIDXCQ9nfJHE4qHtkt2d0sQWPl9SM_ldJmNTX4P9AprhYGEZtQscP_OF9KNMmkIvVYsDV3Q~rVG'
+    // 'https://appleid.apple.com/auth/authorize?client_id=com.nexon.tpa.sign&redirect_uri=https://login.nexon.com/login/apple/AccessToken&response_type=code&scope=email&response_mode=form_post&state=QI~acmLG97BfNfJRjxDr3nMir6jYzoEOIOuZkKEkldfQ5L4UmbPLjLZRlifytjQBN_URcjcnNt7Q1JPk2Q_4bfKIaxnvxETdFZDj7IRgGq2xFRbzBQGmmvmDtFhm3TJuzWyoWPLfkeASXFil~DrR_ArUGKSCPG'
+    // if문 if else문 switch문 쓰지 마세요.
+    function goUrl(type) {
+
+    }
+
+    $(document).ready(function () {
+        $('#btn_form > p').on('click', function () {
+            let id = $(this).attr('id');
+            if("find_id_btn" === id) {
+                $(this).addClass('blue');
+                $(this).removeClass('orange_bottom');
+                $('#find_pw_btn').addClass('blue_bottom');
+                $('#find_pw_btn').removeClass('orange');
+                $('#find_pw_btn').removeClass('orange_bottom');
+                $('#find').addClass('blue')
+                $('#find').removeClass('orange')
+
+                return;
+            }
+            if("find_pw_btn" === id) {
+                $(this).addClass('orange');
+                $(this).removeClass('blue_bottom');
+                $('#find_id_btn').addClass('orange_bottom');
+                $('#find_id_btn').removeClass('blue');
+                $('#find_id_btn').removeClass('blue_bottom');
+                $('#find').addClass('orange')
+                $('#find').removeClass('blue')
+
+
+            }
+        });
+    });
+</script>
+<style>
+    * {
+        font-family: -apple-system,Roboto,NotoSans,AppleSDGothicNeo,Malgun Gothic,맑은 고딕,돋움,dotum,sans-serif;
+    }
+
+    body, html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    div, p, input, a {
+        margin: 0;
+        padding: 0;
+    }
+
+    input {
+        display: block;
+    }
+
+    a, button {
+        cursor: pointer;
+    }
+
+    a {
+        text-decoration-line: none;
+    }
+
+    #wrap {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        background: url(https://ssl.nexon.com/s2/game/maplestory/renewal/login_full/login_full_bg.jpg) #28252d center top no-repeat;
+        overflow: hidden;
+        margin: 0 auto;
+    }
+
+    #login_form {
+        width: 580px;
+        height: 630px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+
+    #btn_form {
+        width: 100%;
+        display: flex;
+    }
+
+    #btn_form > p {
+        width: 50%;
+        padding: 25px 0;
+        text-align: center;
+        color: whitesmoke;
+        font-size: 22px;
+        cursor: pointer;
+    }
+
+    .orange {
+        background-color: rgba(240, 126, 35, 0.6);
+    }
+
+    .orange_bottom {
+        border-bottom: 1px solid rgb(240, 126, 35);
+    }
+
+    .blue {
+        background-color: rgb(64, 129, 236);
+    }
+
+    .blue_bottom {
+        border-bottom: 1px solid rgba(64, 129, 236, 0.6);
+    }
+
+    #input_form {
+        width: 100%;
+        margin-top: 30px;
+    }
+
+    #input_form > input {
+        width: 100%;
+        height: 75px;
+        border: none;
+        background-color: #17151c;
+        font-size: 18px;
+        padding: 0 20px;
+        color: gray;
+    }
+
+    #find {
+        display: inline-block;
+        width: 100%;
+        color: whitesmoke;
+        margin: 20px 0;
+        padding: 20px 0;
+        text-align: center;
+        font-size: 26px;
+        border: none;
+        border-radius: 5px;
+    }
+
+    #other > a {
+        display: inline-block;
+        text-align: center;
+        width: 32%;
+        border-right: 1px solid gray;
+        color: gray;
+    }
+
+    #other > a:last-child {
+        border: none;
+    }
+
+    #footer {
+        position: absolute;
+        top: 255px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 150px;
+    }
+</style>
+<body>
+    <div id="wrap">
+        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px;">
+            <div style="margin: 0 10px;">
+                <img onclick="home();" style="margin-right: 10px; cursor: pointer;" src="https://ssl.nexon.com/s2/game/maplestory/renewal/common/update/sub_menu_btn.png">
+                <img onclick="home();" style="cursor: pointer;" src="https://ssl.nexon.com/s2/game/maplestory/renewal/common/update/sub_home_btn.png">
+            </div>
+            <img onclick="home();" style="cursor: pointer;" src="https://ssl.nexon.com/s2/game/maplestory/renewal/common/char_info/logo.png">
+        </div>
+        <img style="display: block; margin: 60px auto;" src="https://ssl.nexon.com/s2/game/maplestory/renewal/login_full/login_text.png">
+        <div id="login_form">
+            <div id="btn_form">
+                <p id="find_id_btn" class="blue blue_bottom" style="border-radius: 5px 0 0 0;">아이디 찾기</p>
+                <p id="find_pw_btn" class="orange orange_bottom" style="border-radius: 0 5px 0 0;">비밀번호 찾기</p>
+            </div>
+            <div id="input_form" style="position: relative;">
+                <input id="first_input" style="margin-bottom: 5px;" placeholder="이름을 입력해주세요."/>
+                <input id="second_input" type="password" placeholder="암호를 입력해주세요."/>
+                <img id="eye_btn" style="cursor:pointer; position: absolute; width: 30px; right: 15px; top: 105px;" src="/img/open_eye.png"/>
+                <a id="find" class="blue">아이디 찾기</a>
+                <div id="other">
+                    <a href="https://member.nexon.com/join/join.aspx?accesscode=136">회원가입</a>
+                    <a href="https://maplestory.nexon.com/Authentication/Login?t=2#a">로그인</a>
+                    <a onclick="home();">홈</a>
+                </div>
+            </div>
+            <div style="margin-top: 90px">
+                <div style="display: flex; margin-bottom: 5px;">
+                    <img onclick="goUrl('facebook');" style="margin-right: 5px;" src="https://ssl.nexon.com/s2/game/maplestory/renewal/login_full/tpa_login_btn01_off.png">
+                    <img onclick="goUrl('google');" src="https://ssl.nexon.com/s2/game/maplestory/renewal/login_full/tpa_login_btn02_off.png">
+                </div>
+                <div style="display: flex;">
+                    <img onclick="goUrl('naver');" style="margin-right: 5px;" src="https://ssl.nexon.com/s2/game/maplestory/renewal/login_full/tpa_login_btn03_off.png">
+                    <img onclick="goUrl('apple');" src="https://ssl.nexon.com/s2/game/maplestory/renewal/login_full/tpa_login_btn04_off.png">
+                </div>
+            </div>
+        </div>
+        <div style="position: relative; height: 400px; display: flex; justify-content: center; ">
+            <img style="position: absolute; z-index: 99;" src="https://ssl.nexon.com/s2/game/maplestory/renewal/login_full/character.png">
+            <div id="footer" class="blue">
+                <img src="https://ssl.nexon.com/s2/game/maplestory/renewal/login_full/copy.png">
+            </div>
+        </div>
+    </div>
+</body>
+<footer>
+
+</footer>
+</html>
