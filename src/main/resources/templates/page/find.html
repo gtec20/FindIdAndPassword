@@ -22,6 +22,17 @@
     }
 
     $(document).ready(function () {
+        $('#eye_btn').on('click', function () {
+            $('#eye_btn').toggleClass('active');
+            if($('#eye_btn').hasClass('active')) {
+                $('#eye_btn').attr('src', "/static/img/close_eye.png");
+                $('#second_input').prop('type', 'text');
+            } else {
+                $('#eye_btn').attr('src', "/static/img/open_eye.png");
+                $('#second_input').prop('type', 'password');
+            }
+        });
+
         $('#btn_form > p').on('click', function () {
             let id = $(this).attr('id');
             if("find_id_btn" === id) {
@@ -72,7 +83,7 @@
             <div id="input_form" style="position: relative;">
                 <input id="first_input" style="margin-bottom: 5px;" placeholder="이름을 입력해주세요."/>
                 <input id="second_input" type="password" placeholder="암호를 입력해주세요."/>
-                <img id="eye_btn" style="cursor:pointer; position: absolute; width: 30px; right: 15px; top: 105px;" src="/img/open_eye.png"/>
+                <img id="eye_btn" style="cursor:pointer; position: absolute; width: 30px; right: 15px; top: 105px;" src="/static/img/open_eye.png"/>
                 <a id="find" class="blue">아이디 찾기</a>
                 <div id="other">
                     <a href="https://member.nexon.com/join/join.aspx?accesscode=136">회원가입</a>
