@@ -34,6 +34,9 @@
                 $('#find').text("아이디 찾기")
                 $('footer').addClass('blue')
 
+                $('#first_input').attr("placeholder", "이름을 입력해주세요.")
+                $('#second_input').attr("placeholder", "비밀번호를 입력해주세요.")
+
                 return;
             }
             if("find_pw_btn" === id) {
@@ -47,6 +50,9 @@
                 $('#find').text("비밀번호 찾기")
                 $('#footer').addClass('orange')
                 $('#footer').removeClass('blue')
+
+                $('#first_input').attr("placeholder", "아이디를 입력해주세요.")
+                $('#second_input').attr("placeholder", "이름을 입력해주세요.")
 
 
             }
