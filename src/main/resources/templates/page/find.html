@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>계정찾기 | 메이플스토리</title>
+    <link rel="stylesheet" href="/static/css/find.css">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <script>
@@ -29,6 +30,7 @@
                 $('#find_pw_btn').addClass('blue_bottom');
                 $('#find_pw_btn').removeClass('orange');
                 $('#find_pw_btn').removeClass('orange_bottom');
+                $('#footer').addClass('blue');
                 return;
             }
             if("find_pw_btn" === id) {
@@ -37,133 +39,12 @@
                 $('#find_id_btn').addClass('orange_bottom');
                 $('#find_id_btn').removeClass('blue');
                 $('#find_id_btn').removeClass('blue_bottom');
+                $('#footer').addClass('orange');
+                $('#footer').removeClass('blue');
             }
         });
     });
 </script>
-<style>
-    * {
-        font-family: -apple-system,Roboto,NotoSans,AppleSDGothicNeo,Malgun Gothic,맑은 고딕,돋움,dotum,sans-serif;
-    }
-
-    body, html {
-        margin: 0;
-        padding: 0;
-        width: 100%;
-    }
-
-    div, p, input, a {
-        margin: 0;
-        padding: 0;
-    }
-
-    input {
-        display: block;
-    }
-
-    a, button {
-        cursor: pointer;
-    }
-
-    a {
-        text-decoration-line: none;
-    }
-
-    #wrap {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        background: url(https://ssl.nexon.com/s2/game/maplestory/renewal/login_full/login_full_bg.jpg) #28252d center top no-repeat;
-        overflow: hidden;
-        margin: 0 auto;
-    }
-
-    #login_form {
-        width: 580px;
-        height: 630px;
-        margin: 0 auto;
-        overflow: hidden;
-    }
-
-    #btn_form {
-        width: 100%;
-        display: flex;
-    }
-
-    #btn_form > p {
-        width: 50%;
-        padding: 25px 0;
-        text-align: center;
-        color: whitesmoke;
-        font-size: 22px;
-        cursor: pointer;
-    }
-
-    .orange {
-        background-color: rgba(240, 126, 35, 0.6);
-    }
-
-    .orange_bottom {
-        border-bottom: 1px solid rgb(240, 126, 35);
-    }
-
-    .blue {
-        background-color: rgb(64, 129, 236);
-    }
-
-    .blue_bottom {
-        border-bottom: 1px solid rgba(64, 129, 236, 0.6);
-    }
-
-    #input_form {
-        width: 100%;
-        margin-top: 30px;
-    }
-
-    #input_form > input {
-        width: 100%;
-        height: 75px;
-        border: none;
-        background-color: #17151c;
-        font-size: 18px;
-        padding: 0 20px;
-        color: gray;
-    }
-
-    #find {
-        display: inline-block;
-        width: 100%;
-        color: whitesmoke;
-        margin: 20px 0;
-        padding: 20px 0;
-        text-align: center;
-        font-size: 26px;
-        border: none;
-        border-radius: 5px;
-    }
-
-    #other > a {
-        display: inline-block;
-        text-align: center;
-        width: 32%;
-        border-right: 1px solid gray;
-        color: gray;
-    }
-
-    #other > a:last-child {
-        border: none;
-    }
-
-    #footer {
-        position: absolute;
-        top: 255px;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 150px;
-    }
-</style>
 <body>
     <div id="wrap">
         <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 20px;">
