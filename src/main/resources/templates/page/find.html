@@ -26,10 +26,10 @@
             $('#eye_btn').toggleClass('active');
             if($('#eye_btn').hasClass('active')) {
                 $('#eye_btn').attr('src', "/static/img/close_eye.png");
-                $('#second_input').prop('type', 'text');
+                $('#second_input').attr('type', 'text');
             } else {
                 $('#eye_btn').attr('src', "/static/img/open_eye.png");
-                $('#second_input').prop('type', 'password');
+                $('#second_input').attr('type', 'password');
             }
         });
 
@@ -93,12 +93,12 @@
             </div>
             <div style="margin-top: 90px">
                 <div style="display: flex; margin-bottom: 5px;">
-                    <img onclick="goUrl('facebook');" style="margin-right: 5px;" src="https://ssl.nexon.com/s2/game/maplestory/renewal/login_full/tpa_login_btn01_off.png">
-                    <img onclick="goUrl('google');" src="https://ssl.nexon.com/s2/game/maplestory/renewal/login_full/tpa_login_btn02_off.png">
+                    <img onclick="goUrl('facebook');" style="margin-right: 5px; cursor: pointer;" src="https://ssl.nexon.com/s2/game/maplestory/renewal/login_full/tpa_login_btn01_off.png">
+                    <img onclick="goUrl('google');" style="cursor: pointer;" src="https://ssl.nexon.com/s2/game/maplestory/renewal/login_full/tpa_login_btn02_off.png">
                 </div>
                 <div style="display: flex;">
-                    <img onclick="goUrl('naver');" style="margin-right: 5px;" src="https://ssl.nexon.com/s2/game/maplestory/renewal/login_full/tpa_login_btn03_off.png">
-                    <img onclick="goUrl('apple');" src="https://ssl.nexon.com/s2/game/maplestory/renewal/login_full/tpa_login_btn04_off.png">
+                    <img onclick="goUrl('naver');" style="margin-right: 5px; cursor: pointer;" src="https://ssl.nexon.com/s2/game/maplestory/renewal/login_full/tpa_login_btn03_off.png">
+                    <img onclick="goUrl('apple');" style="cursor: pointer;" src="https://ssl.nexon.com/s2/game/maplestory/renewal/login_full/tpa_login_btn04_off.png">
                 </div>
             </div>
         </div>
