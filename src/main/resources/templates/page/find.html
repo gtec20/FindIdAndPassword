@@ -22,6 +22,18 @@
     }
 
     $(document).ready(function () {
+        $('#find').on('click', function () {
+            if(!$('#first_input').val()) {
+                $('#first_input').focus();
+                alert('이름 / 아이디를 입력해 주세요.');
+            }
+
+            if(!$('#second_input').val()) {
+                $('#second_input').focus();
+                alert('암호 / 이름을 입력해 주세요.');
+            }
+        });
+
         $('#eye_btn').on('click', function () {
             $('#eye_btn').toggleClass('active');
             if($('#eye_btn').hasClass('active')) {
