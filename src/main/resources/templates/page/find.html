@@ -58,16 +58,15 @@
             }
         });
 
-        $('#eye_btn').mousedown(function () {
-
-            $('#second_input').attr('type', 'text')
-            $('#eye_btn').attr('src', '/img/open_eye.png/' )
-        });
-
-        $('eye_btn').mouseup()(function (){
-
-            $('#second_input').attr('type', 'password')
-            $('#eye_btn').attr('src', '/img/close_eye.png/' )
+        $('#eye_btn').click(function (){
+           var input = $('#second_input');
+           if(input.attr('type') === 'password'){
+               input.attr('type', 'text');
+               $('#eye_btn').attr('src', '/img/close_eye.png');
+           }else {
+               input.attr('type', 'password');
+               $('#eye_btn').attr('src', '/img/open_eye.png');
+           }
         });
 
     });
