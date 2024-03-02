@@ -32,6 +32,21 @@
                 $('#second_input').focus();
                 alert('암호 / 이름을 입력해 주세요.');
             }
+
+            $.ajax({
+                type:'GET',
+                url : '/api/find',
+                data: {
+                    id: $('#first_input').val(),
+                    pw: $('#second_input').val()
+                },
+                success: function (res) {
+                    alert(res);
+                },
+                error: function (err) {
+                    alert(err);
+                }
+            });
         });
 
         $('#eye_btn').on('click', function () {
