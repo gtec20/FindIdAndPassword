@@ -32,21 +32,6 @@
                 $('#second_input').focus();
                 alert('암호 / 이름을 입력해 주세요.');
             }
-
-            $.ajax({
-                type:'GET',
-                url : '/api/find',
-                data: {
-                    id: $('#first_input').val(),
-                    pw: $('#second_input').val()
-                },
-                success: function (res) {
-                    alert(res);
-                },
-                error: function (err) {
-                    alert(err);
-                }
-            });
         });
 
         $('#eye_btn').on('click', function () {
@@ -73,6 +58,24 @@
                 $('#find').text("아이디 찾기");
                 $('#first_input').attr('placeholder', '이름을 입력해 주세요.');
                 $('#second_input').attr('placeholder', '암호를 입력해 주세요.');
+
+                $('#find').on('click', function () {
+                    $.ajax({
+                        type:'GET',
+                        url : '/api/find',
+                        async : false,
+                        data: {
+                            name: $('#first_input').val(),
+                            pw: $('#second_input').val()
+                        },
+                        success: function (res) {
+                            alert(res);
+                        },
+                        error: function (err) {
+                            alert(err);
+                        }
+                    });
+                })
                 return;
             }
             if("find_pw_btn" === id) {
@@ -88,6 +91,24 @@
                 $('#find').text("비밀번호 찾기");
                 $('#first_input').attr('placeholder', '아이디를 입력해 주세요.');
                 $('#second_input').attr('placeholder', '이름을 입력해 주세요.');
+
+                $('#find').on('click', function () {
+                    $.ajax({
+                        type:'GET',
+                        url : '/api/find',
+                        async : false,
+                        data: {
+                            id: $('#first_input').val(),
+                            name: $('#second_input').val()
+                        },
+                        success: function (res) {
+                            alert(res);
+                        },
+                        error: function (err) {
+                            alert(err);
+                        }
+                    });
+                })
             }
         });
     });
