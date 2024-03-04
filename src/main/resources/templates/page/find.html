@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>계정찾기 | 메이플스토리</title>
-    <link rel="stylesheet" href="/static/css/find.css">
+    <link rel="stylesheet" href="/css/find.css">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <script>
@@ -22,7 +22,25 @@
     }
 
     $(document).ready(function () {
+
         $('#find').on('click', function () {
+
+            $.ajax({
+                type:'GET',
+                url : '/api/find',
+                async : false,
+                data: {
+                    first: $('#first_input').val(),
+                    second: $('#second_input').val()
+                },
+                success: function (res) {
+                    alert(res);
+                },
+                error: function (err) {
+                    alert(err);
+                }
+            });
+
             if(!$('#first_input').val()) {
                 $('#first_input').focus();
                 alert('이름 / 아이디를 입력해 주세요.');
@@ -32,15 +50,17 @@
                 $('#second_input').focus();
                 alert('암호 / 이름을 입력해 주세요.');
             }
+
+
         });
 
         $('#eye_btn').on('click', function () {
             $('#eye_btn').toggleClass('active');
             if($('#eye_btn').hasClass('active')) {
-                $('#eye_btn').attr('src', "/static/img/close_eye.png");
+                $('#eye_btn').attr('src', "/img/close_eye.png");
                 $('#second_input').attr('type', 'text');
             } else {
-                $('#eye_btn').attr('src', "/static/img/open_eye.png");
+                $('#eye_btn').attr('src', "/img/open_eye.png");
                 $('#second_input').attr('type', 'password');
             }
         });
@@ -59,23 +79,6 @@
                 $('#first_input').attr('placeholder', '이름을 입력해 주세요.');
                 $('#second_input').attr('placeholder', '암호를 입력해 주세요.');
 
-                $('#find').on('click', function () {
-                    $.ajax({
-                        type:'GET',
-                        url : '/api/find',
-                        async : false,
-                        data: {
-                            name: $('#first_input').val(),
-                            pw: $('#second_input').val()
-                        },
-                        success: function (res) {
-                            alert(res);
-                        },
-                        error: function (err) {
-                            alert(err);
-                        }
-                    });
-                })
                 return;
             }
             if("find_pw_btn" === id) {
@@ -91,24 +94,6 @@
                 $('#find').text("비밀번호 찾기");
                 $('#first_input').attr('placeholder', '아이디를 입력해 주세요.');
                 $('#second_input').attr('placeholder', '이름을 입력해 주세요.');
-
-                $('#find').on('click', function () {
-                    $.ajax({
-                        type:'GET',
-                        url : '/api/find',
-                        async : false,
-                        data: {
-                            id: $('#first_input').val(),
-                            name: $('#second_input').val()
-                        },
-                        success: function (res) {
-                            alert(res);
-                        },
-                        error: function (err) {
-                            alert(err);
-                        }
-                    });
-                })
             }
         });
     });
@@ -131,7 +116,7 @@
             <div id="input_form" style="position: relative;">
                 <input id="first_input" style="margin-bottom: 5px;" placeholder="이름을 입력해주세요."/>
                 <input id="second_input" type="password" placeholder="암호를 입력해주세요."/>
-                <img id="eye_btn" style="cursor:pointer; position: absolute; width: 30px; right: 15px; top: 105px;" src="/static/img/open_eye.png"/>
+                <img id="eye_btn" style="cursor:pointer; position: absolute; width: 30px; right: 15px; top: 105px;" src="/img/open_eye.png"/>
                 <a id="find" class="blue">아이디 찾기</a>
                 <div id="other">
                     <a href="https://member.nexon.com/join/join.aspx?accesscode=136">회원가입</a>
