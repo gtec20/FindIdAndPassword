@@ -18,6 +18,12 @@ public class FindIdAndPasswordController {
 
     @GetMapping("")
     public String isFind(@ModelAttribute("findDto") FindDto findDto) {
+        System.out.println(findDto.getId());
+        return "";
+    }
+
+    //아이디 찾기(이름, 암호)
+    private String nameCheck () {
 
         return "";
     }

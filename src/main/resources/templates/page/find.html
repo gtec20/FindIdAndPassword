@@ -22,16 +22,17 @@
     }
 
     $(document).ready(function () {
+        let first_val = $('#first_input').val();
+        let second_val = $('#second_input').val();
 
         $('#find').on('click', function () {
-
             $.ajax({
                 type:'GET',
                 url : '/api/find',
-                async : false,
                 data: {
-                    first: $('#first_input').val(),
-                    second: $('#second_input').val()
+                    id: first_val,
+                    name: second_val,
+                    pw: second_val
                 },
                 success: function (res) {
                     alert(res);
