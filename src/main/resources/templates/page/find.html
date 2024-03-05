@@ -22,18 +22,27 @@
     }
 
     $(document).ready(function () {
-        let first_val = $('#first_input').val();
-        let second_val = $('#second_input').val();
-
         $('#find').on('click', function () {
+            let first_val = $('#first_input').val();
+            let second_val = $('#second_input').val();
+            let data;
+
+            if($('#find_id_btn').hasClass('blue_bottom')) {
+                data = {
+                    name: first_val,
+                    pw: second_val
+                }
+            }else {
+                data = {
+                    id: first_val,
+                    name: second_val
+                }
+            }
+
             $.ajax({
                 type:'GET',
                 url : '/api/find',
-                data: {
-                    id: first_val,
-                    name: second_val,
-                    pw: second_val
-                },
+                data: data,
                 success: function (res) {
                     alert(res);
                 },
@@ -42,12 +51,12 @@
                 }
             });
 
-            if(!$('#first_input').val()) {
+            if(!first_val) {
                 $('#first_input').focus();
                 alert('이름 / 아이디를 입력해 주세요.');
             }
 
-            if(!$('#second_input').val()) {
+            if(!second_val) {
                 $('#second_input').focus();
                 alert('암호 / 이름을 입력해 주세요.');
             }
