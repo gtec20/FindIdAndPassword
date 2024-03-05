@@ -30,17 +30,63 @@
         // find_id_btn .click 을 이용해 if first_input === "" 으로 입력 요구 alert 띄우기
 
         $('#find').on('click', function (){
-            var first = $("#first_input").val();
-            var second = $("#second_input").val();
+            let first_value = $("#first_input").val();
+            let second_value = $("second_input").val();
+            let data;
+            let type = 'id';
+
+            if(type === 'id') {
+                data = {name: first_value, pw: second_value};
+            } else {
+                data = {id: first_value, name: second_value};
+            }
+
+            if(type === 'id') {
+                if (first_value === "") {
+                    alert("이름을 입력해주세요!");
+                    $('#first_input').focus();
+                    return;
+                }
+                if (second_value === "") {
+                    alert("비밀번호를 입력해주세요!");
+                    $('#second_input').focus();
+                    return;
+                }
+            }
+            else{
+                if(first_value === "") {
+                    alert("아이디를 입력해주세요!");
+                    $('#first_input').focus();
+                    return;
+                }
+                if(second_value === ""){
+                    alert("이름 입력해주세요!");
+                    $('#second_input').focus();
+                    return;
+                }
+            }
+
+            /*if(type === 'id' && first_value === ""){
+                alert("이름을 입력해주세요!")
+                $('#first_input').focus();
+            } else {
+                alert("비밀번호를 입력해주세요!")
+                $('#second_input').focus();
+            }
+
+            if(type === 'password' && first_value === ""){
+                alert("이름을 입력해주세요!")
+                $('#first_input').focus();
+            } else {
+                alert("비밀번호를 입력해주세요!")
+                $('#second_input').focus();
+            }*/
 
             $.ajax({
                 type:'GET',
                 url : '/api/find',
                 async : false,
-                data: {
-                    first: first,
-                    second: second
-                },
+                data: data,
                 success: function (res) {
                     alert(res);
                 },
@@ -48,30 +94,6 @@
                     alert(err);
                 }
             });
-
-            $('#find_id_btn').click(function (){
-                if(first === ""){
-                    alert("이름을 입력해주세요!")
-                    $('#first_input').focus();
-
-                } else(second === ""){
-                    alert("비밀번호를 입력해주세요!")
-                    $('#second_input').focus();
-                }
-            });
-
-            $('#find_pw_btn').click(function (){
-                if(first === ""){
-                    alert("아이디를 입력해주세요!")
-                    $('#first_input').focus();
-
-                } else(second === ""){
-                    alert("이름을 입력해주세요!")
-                    $('#second_input').focus();
-                }
-            });
-
-
 
         });
 
@@ -125,6 +147,7 @@
 
         $('#find_pw_btn').click(function (){
             $('#eye_btn').hide();
+            $('#second_input').attr('type', 'text');
         });
         $('#find_id_btn').click(function (){
             $('#eye_btn').show();
