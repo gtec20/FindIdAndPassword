@@ -7,6 +7,7 @@
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
 </head>
 <script>
+    let type = 'id';
     function home() {
         location.href = 'https://maplestory.nexon.com/Home/Main';
     }
@@ -27,10 +28,15 @@
         location.href = urlData[type];
     }
 
+    function isCheckVal(val) {
+        return val.length >= 1;
+    }
+
     $(document).ready(function () {
         $('#btn_form > p').on('click', function () {
             let id = $(this).attr('id');
             if("find_id_btn" === id) {
+                type = 'id';
                 $(this).addClass('blue');
                 $(this).removeClass('orange_bottom');
                 $('#find_pw_btn').addClass('blue_bottom');
@@ -48,7 +54,7 @@
                 $("#second_input").attr("placeholder", "암호를 입력하세요");
                 return;
             }
-
+            type = 'pw';
             $(this).addClass('orange');
             $(this).removeClass('blue_bottom');
             $('#find_id_btn').addClass('orange_bottom');
@@ -75,6 +81,40 @@
             }
             $(this).attr('src', '/img/open_eye.png');
             $('#second_input').attr('type', 'password');
+        });
+
+        $('#find').on('click', function() {
+            let firstVal = $('#first_input').val();
+            let secondVal = $('#second_input').val();
+            let data;
+            let url = '/api/find';
+
+            if(!isCheckVal(firstVal)) {
+                let msg = type === 'id' ? '이름을 입력해주세요.' : '아이디를 입력해주세요.';
+                alert(msg);
+                return;
+            }
+            if(!isCheckVal(secondVal)) {
+                return;
+            }
+
+            if(type === 'id') {
+                data = {name : firstVal, pw: secondVal};
+            } else {
+                data = {id : firstVal, name: secondVal};
+            }
+
+            $.ajax({
+                url: url,
+                type: 'GET',
+                data: data,
+                success: function (res) {
+                    alert(res);
+                },
+                error: function (err) {
+                    alert(err);
+                }
+            });
         });
     });
 </script>
