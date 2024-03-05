@@ -18,7 +18,13 @@ public class FindIdAndPasswordController {
 
     @GetMapping("")
     public String isFind(@ModelAttribute("findDto") FindDto findDto) {
+        if("id_find".equals(findDto.getType())) {
 
+        }
+
+        if ("pw_find".equals(findDto.getType())) {
+
+        }
         return "";
     }
 
@@ -29,7 +35,7 @@ public class FindIdAndPasswordController {
                 return 0;
             }
         }
-        return ;
+        return -1;
     }
 
 }
