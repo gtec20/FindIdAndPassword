@@ -11,10 +11,12 @@ public class FindDto {
     String id;
     String name;
     String pw;
+    String type;
 
-    public FindDto(String id, String name, String pw) {
+    public FindDto(String id, String name, String pw, String type) {
         this.id = id;
         this.name = name;
         this.pw = pw;
+        this.type = type;
     }
 }

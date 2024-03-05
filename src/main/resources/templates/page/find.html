@@ -29,11 +29,13 @@
 
             if($('#find_id_btn').hasClass('blue_bottom')) {
                 data = {
+                    type: 'id_find',
                     name: first_val,
                     pw: second_val
                 }
             }else {
                 data = {
+                    type: 'pw_find',
                     id: first_val,
                     name: second_val
                 }
