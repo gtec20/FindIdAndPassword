@@ -28,8 +28,13 @@
         location.href = urlData[type];
     }
 
-    function isCheckVal(val) {
-        return val.length >= 1;
+    function isCheckVal(val, $thisVal, msg) {
+        if(val.length >= 1) {
+            return false;
+        }
+        alert(msg);
+        $thisVal.focus();
+        return true;
     }
 
     $(document).ready(function () {
@@ -88,20 +93,24 @@
             let secondVal = $('#second_input').val();
             let data;
             let url = '/api/find';
-
-            if(!isCheckVal(firstVal)) {
-                let msg = type === 'id' ? '이름을 입력해주세요.' : '아이디를 입력해주세요.';
-                alert(msg);
-                return;
-            }
-            if(!isCheckVal(secondVal)) {
-                return;
-            }
+            let firstMsg;
+            let secondMsg;
 
             if(type === 'id') {
+                firstMsg = '이름을 입력해주세요.';
+                secondMsg = '암호를 입력해주세요.';
                 data = {name : firstVal, pw: secondVal};
             } else {
+                firstMsg = '아이디를 입력해주세요.';
+                secondMsg = '이름을 입력해주세요.';
                 data = {id : firstVal, name: secondVal};
+            }
+
+            if(isCheckVal(firstVal, $('#first_input'), firstMsg)) {
+                return;
+            }
+            if(isCheckVal(secondVal,$('#second_input'), secondMsg)) {
+                return;
             }
 
             $.ajax({
