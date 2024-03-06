@@ -29,7 +29,7 @@ public class FindIdAndPasswordController {
         String pw = findDto.getPw();
 
         //아이디 찾기
-        if (StringUtils.isEmpty(name) && StringUtils.isEmpty(pw)){
+        if (!StringUtils.isEmpty(name) && !StringUtils.isEmpty(pw)){
             int nameIdx = nameList.indexOf(name);
             int pwIdx = pwList.indexOf(pw);
             if(nameIdx == -1){
@@ -41,7 +41,7 @@ public class FindIdAndPasswordController {
         }
 
         //비번 찾기
-        if(StringUtils.isEmpty(id) && StringUtils.isEmpty(name)){
+        if(!StringUtils.isEmpty(id) && !StringUtils.isEmpty(name)){
             int idIdx = idList.indexOf(id);
             int nameIdx = nameList.indexOf(name);
             if(idIdx == -1){
