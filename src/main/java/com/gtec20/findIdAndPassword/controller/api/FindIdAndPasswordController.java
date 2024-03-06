@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.thymeleaf.util.StringUtils;
 
 import java.util.List;
 
@@ -21,15 +22,15 @@ public class FindIdAndPasswordController {
         int idx;
 
         if("id_find".equals(findDto.getType())) {
-            if (findDto.getName().isEmpty()) {
+            if (StringUtils.isEmpty(findDto.getName())) {
                 return "이름이 입력되지 않았습니다.";
             }
 
-            if (findDto.getPw().isEmpty()) {
+            if (StringUtils.isEmpty(findDto.getPw())) {
                 return "암호가 입력되지 않았습니다.";
             }
 
-            idx = idFind(findDto.getPw());
+            idx = pwCheck(findDto.getPw());
 
             if (idx == -1) {
                 return "암호가 일치하지 않습니다.";
@@ -46,17 +47,17 @@ public class FindIdAndPasswordController {
         }
 
         if ("pw_find".equals(findDto.getType())) {
-            if (findDto.getId().isEmpty()) {
+            if (StringUtils.isEmpty(findDto.getId())) {
                 return "아이디가 입력되지 않았습니다.";
             }
 
-            if (findDto.getName().isEmpty()) {
+            if (StringUtils.isEmpty(findDto.getName())) {
                 return "이름이 입력되지 않았습니다.";
             }
 
-            idx = pwFind(findDto.getId());
+            idx = idCheck(findDto.getId());
 
-            if(idx == -2) {
+            if(idx == -1) {
                 return "아이디가 일치하지 않습니다.";
             }
 
@@ -72,7 +73,7 @@ public class FindIdAndPasswordController {
     }
 
     //아이디 찾기(이름, 암호) 비밀번호 찾기(아이디, 이름)
-    private int idFind (String pw) {
+    private int pwCheck (String pw) {
         for (int i = 0; i < pwList.size(); i++) {
             if(pw.equals(pwList.get(i))) {
                 return i;
@@ -81,13 +82,13 @@ public class FindIdAndPasswordController {
         return -1;
     }
 
-    private int pwFind (String id) {
+    private int idCheck (String id) {
         for(int i = 0; i < idList.size(); i++) {
             if(id.equals(idList.get(i))) {
                 return i;
             }
         }
-        return -2;
+        return -1;
     }
 
     private int nameFind (String name, int idx) {
