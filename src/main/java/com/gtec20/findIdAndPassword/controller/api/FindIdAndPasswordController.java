@@ -31,14 +31,7 @@ public class FindIdAndPasswordController {
     }
 
     public String getId(FindDto findDto) {
-        int nameIdx = -1;
-        for(int i = 0; i < nameList.size(); i++) {
-            if(nameList.get(i).equals(findDto.getName())) {
-                nameIdx = i;
-                break;
-            }
-        }
-
+        int nameIdx = nameList.indexOf(findDto.getName());
         if(nameIdx == -1) {
             return "이름이 존재하지 않습니다.";
         }
@@ -51,14 +44,7 @@ public class FindIdAndPasswordController {
     }
 
     public String getPw(FindDto findDto) {
-        int idIdx = -1;
-        for(int i = 0; i < idList.size(); i++) {
-            if(idList.get(i).equals(findDto.getId())) {
-                idIdx = i;
-                break;
-            }
-        }
-
+        int idIdx = idList.indexOf(findDto.getId());
         if(idIdx == -1) {
             return "아이디가 존재하지 않습니다.";
         }
