@@ -97,7 +97,7 @@
                 $('#find').addClass('blue')
                 $('#find').removeClass('orange')
                 $('#find').text("아이디 찾기")
-                $('footer').addClass('blue')
+                $('#footer').addClass('blue')
 
                 $('#first_input').attr("placeholder", "이름을 입력해주세요.")
                 $('#second_input').attr("placeholder", "비밀번호를 입력해주세요.")
@@ -111,11 +111,11 @@
                 $('#find_id_btn').addClass('orange_bottom');
                 $('#find_id_btn').removeClass('blue');
                 $('#find_id_btn').removeClass('blue_bottom');
+                $('#footer').addClass('orange')
+                $('#footer').removeClass('blue')
                 $('#find').addClass('orange')
                 $('#find').removeClass('blue')
                 $('#find').text("비밀번호 찾기")
-                $('#footer').addClass('orange')
-                $('#footer').removeClass('blue')
 
                 $('#first_input').attr("placeholder", "아이디를 입력해주세요.")
                 $('#second_input').attr("placeholder", "이름을 입력해주세요.")
@@ -141,6 +141,7 @@
         });
         $('#find_id_btn').click(function (){
             $('#eye_btn').show();
+            $('#second_input').attr('type', 'password')
         });
 
     });

@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.thymeleaf.util.StringUtils;
 
 import java.util.List;
 
@@ -28,19 +29,25 @@ public class FindIdAndPasswordController {
         String pw = findDto.getPw();
 
         //아이디 찾기
-        if (name !=null && !name.isEmpty() && pw != null && !pw.isEmpty()){
+        if (StringUtils.isEmpty(name) && StringUtils.isEmpty(pw)){
             int nameIdx = nameList.indexOf(name);
             int pwIdx = pwList.indexOf(pw);
-            if(nameIdx != -1 && nameIdx == pwIdx){
+            if(nameIdx == -1){
+                return "이름을 다시 입력해주세요.";
+            }
+            if(nameIdx == pwIdx){
                 return nameList.get(nameIdx) + "님의 아이디 : " + idList.get(nameIdx);
             }
         }
 
         //비번 찾기
-        if(id != null && !id.isEmpty() && name != null && !name.isEmpty()){
+        if(StringUtils.isEmpty(id) && StringUtils.isEmpty(name)){
             int idIdx = idList.indexOf(id);
             int nameIdx = nameList.indexOf(name);
-            if(idIdx != -1 && idIdx == nameIdx){
+            if(idIdx == -1){
+                return "id를 다시 입력해주세요.";
+            }
+            if (idIdx == nameIdx){
                 return idList.get(idIdx) + "님의 비밀번호 : " + pwList.get(idIdx);
             }
         }
