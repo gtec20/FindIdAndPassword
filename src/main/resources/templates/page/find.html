@@ -46,11 +46,13 @@
             if(!first_val) {
                 $('#first_input').focus();
                 alert('이름 / 아이디를 입력해 주세요.');
+                return;
             }
 
             if(!second_val) {
                 $('#second_input').focus();
                 alert('암호 / 이름을 입력해 주세요.');
+                return;
             }
 
             $.ajax({

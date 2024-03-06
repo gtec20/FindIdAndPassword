@@ -19,45 +19,52 @@ public class FindIdAndPasswordController {
     @GetMapping("")
     public String isFind(@ModelAttribute("findDto") FindDto findDto) {
         int idx;
-        String type = findDto.getType();
-        String id = findDto.getId();
-        String pw = findDto.getPw();
-        String name = findDto.getName();
 
-        if("id_find".equals(type)) {
-            idx = idFind(pw);
-
-            if (name.isEmpty()) {
+        if("id_find".equals(findDto.getType())) {
+            if (findDto.getName().isEmpty()) {
                 return "이름이 입력되지 않았습니다.";
             }
 
-            if (pw.isEmpty()) {
+            if (findDto.getPw().isEmpty()) {
                 return "암호가 입력되지 않았습니다.";
             }
 
-            if(idx == -1) {
+            idx = idFind(findDto.getPw());
+
+            if (idx == -1) {
                 return "암호가 일치하지 않습니다.";
+            }
+
+            idx = nameFind(findDto.getName(), idx);
+
+            if (idx == -1){
+                return "이름이 일치하지 않습니다.";
             } else {
-                idx = nameFind(name, idx);
                 return "회원님의 아이디는 " + idList.get(idx) + "입니다.";
             }
+
         }
 
-        if ("pw_find".equals(type)) {
-            idx = pwFind(id);
-
-            if (id.isEmpty()) {
+        if ("pw_find".equals(findDto.getType())) {
+            if (findDto.getId().isEmpty()) {
                 return "아이디가 입력되지 않았습니다.";
             }
 
-            if (name.isEmpty()) {
+            if (findDto.getName().isEmpty()) {
                 return "이름이 입력되지 않았습니다.";
             }
 
-            if(idx == -1) {
+            idx = pwFind(findDto.getId());
+
+            if(idx == -2) {
                 return "아이디가 일치하지 않습니다.";
-            }else {
-                idx = nameFind(name, idx);
+            }
+
+            idx = nameFind(findDto.getName(), idx);
+
+            if (idx == -1){
+                return "이름이 일치하지 않습니다.";
+            } else {
                 return "회원님의 암호는 " + pwList.get(idx) + "입니다.";
             }
         }
@@ -80,37 +87,20 @@ public class FindIdAndPasswordController {
                 return i;
             }
         }
-        return -1;
+        return -2;
     }
 
     private int nameFind (String name, int idx) {
         if(name.equals(nameList.get(idx))) {
-            return 0;
+            return idx;
         }
         return -1;
     }
 
-    private String NameCheck(String type, String fir, String sec) {
-        if ("id_find".equals(type) && fir.isEmpty()) {
-            return "이름이 입력되지 않았습니다.";
+    private String NameCheck(String name, int idx) {
+        if (name.equals(nameList.get(idx))) {
+            return "이름이 일치하지 않습니다.";
         }
-
-        for (int i = 0; i < nameList.size(); i++) {
-            if ("id_find".equals(type) && !fir.equals(nameList.get(i))) {
-                return "이름이 일치하지 않습니다.";
-            }
-        }
-
-        if ("pw_find".equals(type) && sec.isEmpty()) {
-            return "비밀번호가 입력되지 않았습니다.";
-        }
-
-        for (int i = 0; i < nameList.size(); i++) {
-            if ("pw_find".equals(type) && !sec.equals(pwList.get(i))) {
-                return "이름이 입력되지 않았습니다";
-            }
-        }
-
         return "이름이 일치하지 않습니다.";
     }
 
