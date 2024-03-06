@@ -38,10 +38,7 @@ public class FindIdAndPasswordController {
             if(nameIdx == pwIdx){
                 return nameList.get(nameIdx) + "님의 아이디 : " + idList.get(nameIdx);
             }
-        }
-
-        //비번 찾기
-        if(!StringUtils.isEmpty(id) && !StringUtils.isEmpty(name)){
+        } else{
             int idIdx = idList.indexOf(id);
             int nameIdx = nameList.indexOf(name);
             if(idIdx == -1){
