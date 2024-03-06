@@ -20,7 +20,7 @@
             naver : 'https://nid.naver.com/oauth2.0/authorize?response_type=code&svctype=0&client_id=9tEsmZTa1qdnr6eIz2yO&redirect_uri=https%3a%2f%2flogin.nexon.com%2flogin%2fnaver%2fAccessToken&state=cjojttk6wIY1L5~FgPrw5ck32oBzKyC0bAOOkGEnwhVQkfywZzli7qGiitRMtszRi3hzvSiSL5o52vfdPI~QIDXCQ9nfJHE4qHtkt2d0sQWPl9SM_ldJmNTX4P9AprhYGEZtQscP_OF9KNMmkIvVYsDV3Q~rVG',
             apple : 'https://appleid.apple.com/auth/authorize?client_id=com.nexon.tpa.sign&redirect_uri=https://login.nexon.com/login/apple/AccessToken&response_type=code&scope=email&response_mode=form_post&state=QI~acmLG97BfNfJRjxDr3nMir6jYzoEOIOuZkKEkldfQ5L4UmbPLjLZRlifytjQBN_URcjcnNt7Q1JPk2Q_4bfKIaxnvxETdFZDj7IRgGq2xFRbzBQGmmvmDtFhm3TJuzWyoWPLfkeASXFil~DrR_ArUGKSCPG'
         };
-        location.href();
+        location.href = url[type];
     }
 
     $(document).ready(function () {
