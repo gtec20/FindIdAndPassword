@@ -1,6 +1,6 @@
 package com.gtec20.findIdAndPassword.controller.api;
 
-import com.gtec20.findIdAndPassword.application.dto.find.FindDto;
+import com.gtec20.findIdAndPassword.application.dto.find.FindPwDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,8 +18,12 @@ public class FindIdAndPasswordController {
     List<String> pwList = List.of("password1", "password2", "password3");
 
     @GetMapping("")
-    public String isFind(@ModelAttribute("findDto") FindDto findDto) {
+    public String isFind(@ModelAttribute("findDto") FindPwDto findDto) {
         int idx;
+
+        if (!findDto.isPwEmptyCheck()) {
+            return "유효하지 않은 값입니다.";
+        }
 
         if("id_find".equals(findDto.getType())) {
             if (StringUtils.isEmpty(findDto.getName())) {

@@ -81,6 +81,10 @@
 
         $('#btn_form > p').on('click', function () {
             let id = $(this).attr('id');
+
+            $('#first_input').val("");
+            $('#second_input').val("");
+
             if("find_id_btn" === id) {
                 $(this).addClass('blue');
                 $(this).removeClass('orange_bottom');
@@ -92,7 +96,6 @@
                 $('#find').text("아이디 찾기");
                 $('#first_input').attr('placeholder', '이름을 입력해 주세요.');
                 $('#second_input').attr('placeholder', '암호를 입력해 주세요.');
-
                 return;
             }
             if("find_pw_btn" === id) {
