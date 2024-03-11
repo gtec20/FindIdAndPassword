@@ -21,7 +21,7 @@ public class FindIdDto {
         this.type = type;
     }
 
-    public boolean isIdEmptyCheck() {
+    public boolean isEmptyCheck() {
         if ("id_find".equals(this.type)) {
             if (StringUtils.isEmpty(this.name) || StringUtils.isEmpty(this.pw)) {
                 return false;

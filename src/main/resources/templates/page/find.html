@@ -28,6 +28,7 @@
             let first_val = $('#first_input').val();
             let second_val = $('#second_input').val();
             let data;
+            let url;
 
             if($('#find_id_btn').hasClass('blue_bottom')) {
                 data = {
@@ -41,6 +42,12 @@
                     id: first_val,
                     name: second_val
                 }
+            }
+
+            if(data.type === 'id_find') {
+                url = '/api/find/findID'
+            } else {
+                url = '/api/find/findPW'
             }
 
             if(!first_val) {
@@ -57,7 +64,7 @@
 
             $.ajax({
                 type:'GET',
-                url : '/api/find',
+                url : url,
                 data: data,
                 success: function (res) {
                     alert(res);

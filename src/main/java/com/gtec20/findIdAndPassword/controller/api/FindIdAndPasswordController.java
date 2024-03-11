@@ -1,5 +1,6 @@
 package com.gtec20.findIdAndPassword.controller.api;
 
+import com.gtec20.findIdAndPassword.application.dto.find.FindIdDto;
 import com.gtec20.findIdAndPassword.application.dto.find.FindPwDto;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -17,11 +18,17 @@ public class FindIdAndPasswordController {
     List<String> idList = List.of("seungwoo", "seungjoo", "jeongha");
     List<String> pwList = List.of("password1", "password2", "password3");
 
-    @GetMapping("")
-    public String isFind(@ModelAttribute("findDto") FindPwDto findDto) {
+    @GetMapping("/findPW")
+    public String findPw(@ModelAttribute("findPwDto") FindPwDto findPwDto) {
+        return "";
+    }
+
+
+    @GetMapping("/findID")
+    public String findID(@ModelAttribute("findIdDto") FindIdDto findIdDto) {
         int idx;
 
-        if (!findDto.isPwEmptyCheck()) {
+        if (!findIdDto.isEmptyCheck()) {
             return "유효하지 않은 값입니다.";
         }
 
@@ -76,6 +83,8 @@ public class FindIdAndPasswordController {
         return "";
     }
 
+
+
     //아이디 찾기(이름, 암호) 비밀번호 찾기(아이디, 이름)
     private int pwCheck (String pw) {
         for (int i = 0; i < pwList.size(); i++) {
@@ -100,13 +109,6 @@ public class FindIdAndPasswordController {
             return idx;
         }
         return -1;
-    }
-
-    private String NameCheck(String name, int idx) {
-        if (name.equals(nameList.get(idx))) {
-            return "이름이 일치하지 않습니다.";
-        }
-        return "이름이 일치하지 않습니다.";
     }
 
 }

@@ -21,7 +21,7 @@ public class FindPwDto {
         this.type = type;
     }
 
-    public boolean isPwEmptyCheck() {
+    public boolean isEmptyCheck() {
         if ("pw_find".equals(this.type)) {
             if (StringUtils.isEmpty(this.id) || StringUtils.isEmpty(this.name)) {
                 return false;
