@@ -15,7 +15,7 @@ public class FindIdDto {
     String name;
     String type;
 
-    public FindIdDto(String id, String name, String type) {
+    public FindIdDto(String pw, String name, String type) {
         this.pw = pw;
         this.name = name;
         this.type = type;
